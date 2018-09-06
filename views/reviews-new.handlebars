@@ -20,8 +20,9 @@
     </p>
   </fieldset>
 
-  <!-- Rating -->
+  <!-- RATING -->
   <p>
+      <label for="review-rating">Rating</label>
       <select class="number" name="Rating">
           <option value="0">0</option>
           <option value="1">1</option>
@@ -31,6 +32,10 @@
           <option value="5">5</option>
       </select>
   </p>
+
+<!-- POST -->
+  <form method="POST" action="/reviews">
+    {{> reviews-form}}
 
   <!-- BUTTON -->
   <p>
