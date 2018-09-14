@@ -14,8 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method')); // override with POST having ?_method=DELETE or ?_method=PUT
 
 
-const reviewsController = require('./controllers/reviews');
-app.use(reviewsController);
+ require('./controllers/reviews.js')(app);
+
 
 const mongoUri =
    process.env.MONGODB_URI || "mongodb://localhost:27017/rotten-potatoes";
@@ -29,3 +29,5 @@ const port = process.env.PORT || 3000;
 app.listen(3000, () => {
     console.log('App listening on port 3000!');
 });
+
+module.exports = app;
