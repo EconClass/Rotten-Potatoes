@@ -7,7 +7,13 @@ const bodyParser = require('body-parser'); // Initialize bodyParser
 const reviews = require('./controllers/reviews'); //
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes', {useNewUrlParser: true})
+.then(() => {
+    console.log("Connected to DB");
+})
+.catch( err => {
+    throw err;
+});
 
 // Parser and handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
