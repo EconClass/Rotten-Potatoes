@@ -3,7 +3,8 @@ const express = require('express');
 const methodOverride = require('method-override');
 const app = express();
 const exphbs = require('express-handlebars');
-const bodyParser = require('body-parser'); // Initialize bodyParser//
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 3000; // Initialize bodyParser//
 var mongoose = require('mongoose');
 
 
@@ -23,10 +24,9 @@ mongoose.connect(
    mongoUri,
    { useNewUrlParser: true }
 );
-const port = process.env.PORT || 3000;
 
 // Listen
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('App listening on port 3000!');
 });
 
