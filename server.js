@@ -7,12 +7,6 @@ const bodyParser = require('body-parser'); // Initialize bodyParser
 const reviews = require('./controllers/reviews'); //
 var mongoose = require('mongoose');
 
-const mongoUri =
-   process.env.MONGODB_URI || "mongodb://localhost:27017/rotten-potatoes";
-mongoose.connect(
-   mongoUri,
-   { useNewUrlParser: true }
-);
 
 // Parser and handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -24,6 +18,13 @@ app.use(methodOverride('_method')); // override with POST having ?_method=DELETE
 module.exports = app
 
 reviews(app)
+
+const mongoUri =
+   process.env.MONGODB_URI || "mongodb://localhost:27017/rotten-potatoes";
+mongoose.connect(
+   mongoUri,
+   { useNewUrlParser: true }
+);
 const port = process.env.PORT || 3000;
 
 // Listen
