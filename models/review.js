@@ -1,10 +1,9 @@
-// MODEL
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const reviewSchema = new Schema({
-    title: String,
-    description: String,
-    movieTitle: String,
-    Rating: Number
+const mongoose = require('mongoose')
+
+const Review = mongoose.model('Review', {
+  title: String,
+  description: String,
+  movieTitle: String
 });
-module.exports = mongoose.model('Review', reviewSchema);
+
+module.exports = Review
