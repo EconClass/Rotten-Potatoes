@@ -3,7 +3,6 @@ const app = express();
 const Review = require('../models/review.js')
 const Comment = require('../models/comment.js')
 
-
 // CREATE Comment
 app.post('/reviews/comments', (req, res) => {
     Comment.create(req.body).then(comment => {
