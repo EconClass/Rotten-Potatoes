@@ -3,16 +3,7 @@ const app = express();
 const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 
-// INDEX
-app.get('/', (req, res) => {
-    Review.find()
-    .then(reviews => {
-        res.render('reviews-index', { reviews: reviews });
-    })
-    .catch(err => {
-        console.log(err);
-    })
-});
+// INDEX route is now in "movies.js"
 
 // NEW REVIEWS
 app.get('/reviews/new', (req, res) => {

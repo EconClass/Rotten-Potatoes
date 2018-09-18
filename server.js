@@ -7,9 +7,10 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000; // Port uses 3000 or environment port
 const mongoose = require('mongoose');
 const Review = require('./models/review.js');
-const reviews_controllers = require('./controllers/reviews.js');
+const reviewsControllers = require('./controllers/reviews.js');
 const Comment = require('./models/comment.js');
-const comments_controllers = require('./controllers/comments.js');
+const commentsControllers = require('./controllers/comments.js');
+const moviesControllers = require('./controllers/movies.js');
 
 // Handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -19,8 +20,9 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method')); // override with POST having ?_method=DELETE or ?_method=PUT
 
-app.use('/', reviews_controllers);
-app.use(comments_controllers);
+app.use('/', reviewsControllers);
+app.use(moviesControllers);
+app.use(commentsControllers);
 
 // URI Mongoose
 const mongoUri =
