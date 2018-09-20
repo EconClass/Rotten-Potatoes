@@ -15,6 +15,7 @@ const moviesControllers = require('./controllers/movies.js');
 // Handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + '/public'));
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));

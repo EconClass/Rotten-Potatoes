@@ -3,8 +3,6 @@
     <h4 class="card-title">{{this.title}}</h4>
     <p class="card-text">{{this.content}}</p>
     <!-- Delete link -->
-    <p><form method="POST" action="/movies/{{movie.id}}/reviews/comments/{{this.id}}?_method=DELETE">
-        <button class="btn btn-link" type="submit">Delete</button>
-    </form></p>
+    <p><button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button></p>
   </div>
 </div>
