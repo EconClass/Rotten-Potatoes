@@ -5,6 +5,9 @@ const Comment = require('../models/comment.js');
 const MovieDb = require('moviedb-promise');
 const API_Key = '395c5e7fac62cf5312d0db0877361b6f';
 const moviedb = new MovieDb(API_Key);
+// const reviewsControllers = require('../controllers/reviews.js');
+//
+// app.use(reviewsControllers);
 
 // INDEX
 app.get('/', (req, res) => {
@@ -16,7 +19,6 @@ app.get('/', (req, res) => {
 // SHOW movies with reviews and comments
 app.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id }).then(movie => {
-    console.log(movie.video);
     if (movie.video) {
       moviedb.movieVideos({ id: req.params.id }).then(videos => {
         movie.trailer_youtube_id = videos.results[0].key
@@ -27,7 +29,10 @@ app.get('/movies/:id', (req, res) => {
     }
 
     function renderTemplate(movie)  {
-      res.render('movies-show', { movie: movie });
+        Review.find({ movieId: req.params.id }).then(reviews => {
+            // console.log(`Reviews list: [${reviews}]`);
+            res.render('movies-show', { movie: movie, reviews: reviews });
+        })
     }
 
   }).catch(console.error)

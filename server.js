@@ -20,7 +20,7 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method')); // override with POST having ?_method=DELETE or ?_method=PUT
 
-app.use('/', reviewsControllers);
+app.use(reviewsControllers);
 app.use(moviesControllers);
 app.use(commentsControllers);
 
