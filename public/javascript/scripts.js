@@ -42,15 +42,11 @@ window.onload = function () {
 
     document.getElementById('deleteComment').addEventListener('click', (e) => {
         console.log("click!");
-        console.log(d_comment);
         let commentId = d_comment.getAttribute('data-comment-id');
-        console.log(commentId);
         let delComment = $(d_comment).serialize();
         axios.delete(`/movies/${delComment.movieId}/reviews/comments/${commentId}`)
         .then(response => {
             let comment = document.getElementById(commentId);
-            console.log(comment);
-            console.log(response);
             comment.parentNode.removeChild(comment); // OR comment.style.display = 'none';
         })
         .catch(error => {
