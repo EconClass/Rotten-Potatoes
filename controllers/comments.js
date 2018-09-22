@@ -19,12 +19,8 @@ app.delete('/reviews/comments/:id', function (req, res) {
         res.redirect(`/reviews/${comment.reviewId}`);
     }).catch((err) => {
         console.log(err.message);
-<<<<<<< HEAD
-    })
-})
-=======
     });
 });
->>>>>>> movies
+
 
 module.exports = app;

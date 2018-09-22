@@ -24,10 +24,7 @@ app.use(methodOverride('_method')); // override with POST having ?_method=DELETE
 app.use(reviewsControllers);
 app.use(moviesControllers);
 app.use(commentsControllers);
-<<<<<<< HEAD
-app.use(adminControllers);
-=======
->>>>>>> movies
+
 
 // URI Mongoose
 const mongoUri =
