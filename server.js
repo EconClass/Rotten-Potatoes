@@ -10,7 +10,8 @@ const Review = require('./models/review.js');
 const reviewsControllers = require('./controllers/reviews.js');
 const Comment = require('./models/comment.js');
 const commentsControllers = require('./controllers/comments.js');
-
+const moviesControllers = require('./controllers/movies.js');
+const adminControllers = require('./controllers/admin.js');
 
 
 // Handlebars
@@ -22,9 +23,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method')); // override with POST having ?_method=DELETE or ?_method=PUT
 
+// Access controllers
 app.use(reviewsControllers);
 app.use(moviesControllers);
 app.use(commentsControllers);
+app.use(adminControllers);
 
 
 // URI Mongoose
