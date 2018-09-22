@@ -6,4 +6,4 @@ const Review = mongoose.model('Review', {
   movieTitle: String
 });
 
-module.exports = Review
+module.exports = Review;
