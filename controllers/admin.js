@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const Review = require('../models/review.js');
+const Review = require('../models/review')
+
 
 // NEW Comment
 app.get('/admin', (req, res) => {
