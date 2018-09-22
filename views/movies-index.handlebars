@@ -1,0 +1,13 @@
+<h1 align="center">Movies to Watch</h1>
+<div class="card-deck">
+    {{#each movies}}
+        <div class="col-md-3">
+            <div class="card" style="width: 9.75rem;">
+                <a href="/movies/{{this.id}}">
+                    <img class"card-img-top" src="https://image.tmdb.org/t/p/w154{{this.poster_path}}">
+                </a>
+              <h4 class="card-title">{{this.title}}</h4>
+          </div>
+        </div>
+    {{/each}}
+</div>

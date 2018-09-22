@@ -10,8 +10,8 @@ const Review = require('./models/review.js');
 const reviewsControllers = require('./controllers/reviews.js');
 const Comment = require('./models/comment.js');
 const commentsControllers = require('./controllers/comments.js');
-const adminControllers = require('./admin-dashboard/controllers/admin.js')
-const moviesControllers = require('./controllers/movies.js')
+
+
 
 // Handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -24,7 +24,10 @@ app.use(methodOverride('_method')); // override with POST having ?_method=DELETE
 app.use(reviewsControllers);
 app.use(moviesControllers);
 app.use(commentsControllers);
+<<<<<<< HEAD
 app.use(adminControllers);
+=======
+>>>>>>> movies
 
 // URI Mongoose
 const mongoUri =
