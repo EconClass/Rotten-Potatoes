@@ -7,6 +7,7 @@ const Comment = require('../models/comment.js');
 app.post('/movies/:id/reviews/comments', (req, res) => {
     Comment.create(req.body).then(comment => {
         res.status(200).send({ comment: comment });
+        res.redirect('/movies/:id/reviews/comments');
     }).catch((err) => {
         res.status(400).send({ err: err });
     });
