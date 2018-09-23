@@ -5,9 +5,6 @@ const Comment = require('../models/comment.js');
 const MovieDb = require('moviedb-promise');
 const API_Key = '395c5e7fac62cf5312d0db0877361b6f';
 const moviedb = new MovieDb(API_Key);
-// const reviewsControllers = require('../controllers/reviews.js');
-//
-// app.use(reviewsControllers);
 
 // INDEX
 app.get('/', (req, res) => {

@@ -1,4 +1,5 @@
 window.onload = function () {
+    //==============================CREATE==============================//
     // listen for a form submit event
     let newCommentForm = document.getElementById("newComment");
     newCommentForm.addEventListener("submit", e => {
@@ -37,7 +38,7 @@ window.onload = function () {
             alert('There was a problem saving your comment. Please try again.')
         });
     });
-
+    //==============================DELETE==============================//
     let d_comment = document.getElementById('deleteComment');
 
     document.getElementById('deleteComment').addEventListener('click', (e) => {
