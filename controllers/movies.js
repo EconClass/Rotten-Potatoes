@@ -27,7 +27,6 @@ app.get('/movies/:id', (req, res) => {
 
     function renderTemplate(movie)  {
         Review.find({ movieId: req.params.id }).then(reviews => {
-            // console.log(`Reviews list: [${reviews}]`);
             res.render('movies-show', { movie: movie, reviews: reviews });
         })
     }
