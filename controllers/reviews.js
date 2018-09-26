@@ -17,7 +17,7 @@ app.post('/movies/:id/reviews', (req, res) => {
     Review.create(req.body).then((review) => {
         res.redirect(`reviews/${review._id}`);
     }).catch((err) => {
-        console.log(err.message)
+        console.log(err.message);
     });
 });
 
@@ -29,10 +29,10 @@ app.get('/movies/:id/reviews/:id', (req, res) => {
         Comment.find({ reviewId: req.params.id }).then(comments => {
             // respond with the template with both values
             res.render('reviews-show', { review: review, comments: comments })
-        })
+        });
     }).catch((err) => {
         // catch errors
-        console.log(err.message)
+        console.log(err.message);
     });
 });
 
@@ -50,17 +50,16 @@ app.put('/movies/:id/reviews/:id', (req, res) => {
         res.redirect(`/reviews/${review._id}`)
     })
     .catch(err => {
-        console.log(err.message)
+        console.log(err.message);
     });
 });
 
 // DELETE
 app.delete('/movies/:id/reviews/:id', function (req, res) {
-    console.log("DELETE review")
     Review.findByIdAndRemove(req.params.id).then((review) => {
         res.redirect('/');
     }).catch((err) => {
-        console.log(err.message)
+        console.log(err.message);
     });
 });
 

@@ -1,25 +1,22 @@
 window.onload = function() {
-//=======================================CREATE=======================================//
+//=======================================CREATE COMMENT=======================================//
     // listen for a form submit event
     let newCommentForm = document.getElementById("newComment");
     newCommentForm.addEventListener("submit", e => {
         // prevent the default form behavior
         e.preventDefault();
 
-        let movieId = document.getElementById("movieId").getAttribute("value")
+        let movieId = document.getElementById("movieId").getAttribute("value");
 
         // serialize the form data into an object
         let comment = $(newCommentForm).serialize();
-        console.log(comment);
 
         // use axios to initialize a post request and send in the form data
         axios.post(`/reviews/comments`, comment)
         .then(function (response) {
-            console.log(response);
             // Comment is in a JSON format from the response
             let newComment = response.data.comment;
-            let index = document.querySelectorAll('.card').length // **Assign unique index to every comment card**
-            console.log(index)
+            let index = document.querySelectorAll('.card').length; // **Assign unique index to every comment card**
             newCommentForm.reset();
             let comment_1 = document.getElementById('comment');
 
@@ -41,22 +38,20 @@ window.onload = function() {
             alert('There was a problem saving your comment. Please try again.')
         });
     });
-}
+};
 
-//=======================================DELETE=======================================//
+//=======================================DELETE COMMENT=======================================//
     // addEventListener() attatches listener to pre-existing element
     // function accesses index created in HTML to iterate through comments and delete by index
 function deleteComment(index) {
-    console.log("click!");
     let commentId = document.getElementById("deleteComment-" + index).getAttribute('data-comment-id');
-    console.log(commentId);
     axios.delete(`/reviews/comments/${commentId}`)
     .then(response => {
         let comment = document.getElementById(commentId);
         comment.parentNode.removeChild(comment); // OR comment.style.display = 'none';
     })
     .catch(error => {
-        console.log(error)
-        alert('There was an error deleting this comment.')
+        console.log(error);
+        alert('There was an error deleting this comment.');
     });
-}
+};

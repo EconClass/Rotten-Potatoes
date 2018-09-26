@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const Review = require('../models/review.js')
+const Review = require('../models/review.js');
 
-// NEW Comment
+// AMIN PAGE
 app.get('/admin', (req, res) => {
     Review.find()
     .then(reviews => {
