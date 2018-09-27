@@ -3,7 +3,7 @@ const app = express();
 const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 const MovieDb = require('moviedb-promise');
-const API_Key = '395c5e7fac62cf5312d0db0877361b6f';
+const API_Key = process.env.API_KEY;
 const moviedb = new MovieDb(API_Key);
 
 // INDEX
