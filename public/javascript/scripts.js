@@ -5,12 +5,9 @@ window.onload = function() {
     newCommentForm.addEventListener("submit", e => {
         // prevent the default form behavior
         e.preventDefault();
-
         let movieId = document.getElementById("movieId").getAttribute("value");
-
         // serialize the form data into an object
         let comment = $(newCommentForm).serialize();
-
         // use axios to initialize a post request and send in the form data
         axios.post(`/reviews/comments`, comment)
         .then(function (response) {
@@ -19,7 +16,6 @@ window.onload = function() {
             let index = document.querySelectorAll('.card').length; // **Assign unique index to every comment card**
             newCommentForm.reset();
             let comment_1 = document.getElementById('comment');
-
             $(comment_1).prepend(
                 `
                 <div class="card" id="${newComment._id}">

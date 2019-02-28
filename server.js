@@ -10,10 +10,6 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000; // Port uses 3000 or environment port
 
-// REQUIRE MODELS
-const Review = require('./models/review.js');
-const Comment = require('./models/comment.js');
-
 // REQUIRE CONTROLLERS
 const reviewsControllers = require('./controllers/reviews.js');
 const moviesControllers = require('./controllers/movies.js');

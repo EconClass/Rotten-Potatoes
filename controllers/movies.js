@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const Review = require('../models/review.js');
-const Comment = require('../models/comment.js');
 const MovieDb = require('moviedb-promise');
 const API_Key = process.env.API_KEY;
 const moviedb = new MovieDb(API_Key);
@@ -24,7 +23,6 @@ app.get('/movies/:id', (req, res) => {
         } else {
             renderTemplate(movie);
         };
-
         function renderTemplate(movie)  {
             Review.find({ movieId: req.params.id }).then(reviews => {
                 res.render('movies-show', { movie: movie, reviews: reviews });
